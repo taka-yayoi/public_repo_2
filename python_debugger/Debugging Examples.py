@@ -2,7 +2,7 @@
 # MAGIC %md
 # MAGIC # Databricksノートブックにおけるデバッグ
 # MAGIC 
-# MAGIC Databricksランタイム11.2以降で動作するノートブックでは[The Python Debugger](https://docs.python.org/3/library/pdb.html) (pdb)がサポートされます。
+# MAGIC Databricksランタイム11.2以降で動作するノートブックでは[Python Debugger](https://docs.python.org/3/library/pdb.html) (pdb)がサポートされます。
 # MAGIC 
 # MAGIC ノートブックにおけるpdbの使い方のサンプルを示します。
 # MAGIC - 最後の例外からデバッグするには`%debug`を使います。これは、予期しないエラーに遭遇し、原因をデバッグする際に役立ちます(`pdb.pm()`と似ています)。
