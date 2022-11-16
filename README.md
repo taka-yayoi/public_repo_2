@@ -8,4 +8,5 @@ Databricksのサンプルノートブックを格納しています。基本的�
   * [DatabricksでPythonデバッガー\(pdb\)を使う](https://qiita.com/taka_yayoi/items/f52e8de6cc89fd67840f)
 * [feature\_store\_example](https://github.com/taka-yayoi/public_repo_2/tree/master/feature_store_example): Databricks Feature Storeのサンプルです。
   * [Databricks Feature Storeワークフローの概要](https://qiita.com/taka_yayoi/items/4ee41a1865aeaf3ac79c)
-* 
+* [graph\_analysis](https://github.com/taka-yayoi/public_repo_2/tree/master/graph_analysis): GraphFramesを用いたグラフ分析のサンプルです。
+  * [Databricksにおけるグラフ分析](https://qiita.com/taka_yayoi/items/6d90f8cb8bd661e8e26b)
