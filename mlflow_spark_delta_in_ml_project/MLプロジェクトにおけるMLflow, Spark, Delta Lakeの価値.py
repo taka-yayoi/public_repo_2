@@ -466,46 +466,6 @@ print(f'AUC: {roc_auc_score(y_test, model.predict(X_test))}')
 
 # COMMAND ----------
 
-# MAGIC %md ## 特徴量エンジニアリング
-# MAGIC 
-# MAGIC モデルのパフォーマンスを改善するには、複数のアプローチが考えられますが、代表的なアプローチとしては以下のものが考えられます。以降では、これらの取り組みを行っていきますが、まずは特徴量エンジニアリングを行います。
-# MAGIC 
-# MAGIC - パフォーマンスチューニング
-# MAGIC - アルゴリズムの変更
-# MAGIC - 特徴量エンジニアリング
-
-# COMMAND ----------
-
-# MAGIC %md
-# MAGIC ### カラムの追加
-# MAGIC 
-# MAGIC 実際に特徴量エンジニアリングを行うには、問題、データ分布の理解などを通じて試行錯誤を繰り返すことになりますが、ここではデモのために単純に既存カラムから新たなカラムを生成します。
-
-# COMMAND ----------
-
-# Delta Lake形式のデータを読み込みます
-sdf = spark.read.format("delta").load(DELTA_TABLE_DEFAULT_PATH)
-
-# ダミーの特徴量を作成します
-sdf_new = sdf.withColumn('new_feature', sdf.residual_sugar - 1)
-display(sdf_new)
-
-# COMMAND ----------
-
-# MAGIC %md
-# MAGIC スキーマを安全に進化させるように、`mergeSchema`を指定して更新したテーブルを保存します。
-
-# COMMAND ----------
-
-sdf_new.write.option("mergeSchema", "true").format("delta").mode("overwrite").save(DELTA_TABLE_DEFAULT_PATH)
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC DESCRIBE HISTORY wine;
-
-# COMMAND ----------
-
 # MAGIC %md ## 新たなモデルを用いたエクスペリメント
 # MAGIC 
 # MAGIC ハイパーパラメーターチューニングを行わなくても、ベースラインのランダムフォレストモデルはうまく動きました。
@@ -678,7 +638,7 @@ spark_df.write.format("delta").save(table_path)
 
 # COMMAND ----------
 
-# MAGIC %md モデルをSparkのUDF(ユーザー定義関数)としてロードし、Deltaテーブルに適用できるようにします。pandasであればデータの各行に対して、予測処理を逐次実行しなくてはなりませんが、このようにすることで、Sparkの並列分散処理能力を活用して予測を分散処理し、大量データであっても高速に予測結果を得ることが可能になります。
+# MAGIC %md MLflowに記録された機械学習モデルをSparkのUDF(ユーザー定義関数)としてロードし、Deltaテーブルに適用できるようにします。pandasであればデータの各行に対して、予測処理を逐次実行しなくてはなりませんが、このようにすることで、Sparkの並列分散処理能力を活用して予測を分散処理し、大量データであっても高速に予測結果を得ることが可能になります。
 
 # COMMAND ----------
 
@@ -726,10 +686,6 @@ dbutils.fs.rm(table_path, True)
 # MAGIC 低レーテンシーでの予測を行うようにモデルを運用するためには、MLflowのモデルサービング([AWS](https://docs.databricks.com/applications/mlflow/model-serving.html)|[Azure](https://docs.microsoft.com/azure/databricks/applications/mlflow/model-serving))を利用して、モデルをエンドポイントにデプロイします。
 # MAGIC 
 # MAGIC 以下のコードでは、どのようにREST APIを用いてデプロイしたモデルから予測結果を得るのかを説明しています。
-# MAGIC 
-# MAGIC さらにはREST APIエンドポイントを立ち上げることで、GUIと連携させることができます。
-# MAGIC 
-# MAGIC https://share.streamlit.io/taka-yayoi/streamlit/main/wine/app.py
 
 # COMMAND ----------
 
