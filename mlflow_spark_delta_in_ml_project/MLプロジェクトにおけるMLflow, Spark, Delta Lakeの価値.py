@@ -735,7 +735,7 @@ def process_input(dataset):
 def score_model(dataset):
   
   #print(dataset)
-  url = 'https://e2-demo-west.cloud.databricks.com/model/wine_quality_takaakiyayoidatabrickscom/Production/invocations'
+  url = 'https://<ワークスペースのURL>/model/wine_quality_takaakiyayoidatabrickscom/Production/invocations'
   headers = {'Authorization': f'Bearer {os.environ.get("DATABRICKS_TOKEN")}'}
   data_json = process_input(dataset)
   
