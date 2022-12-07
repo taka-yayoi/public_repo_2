@@ -21,3 +21,4 @@ Databricksのサンプルノートブックを格納しています。基本的�
 * [mlflow\_spark\_delta\_in\_ml\_project](https://github.com/taka-yayoi/public_repo_2/tree/master/mlflow_spark_delta_in_ml_project): ML15minでデモしたノートブックです。
   * [機械学習プロジェクトにおけるMLflow/Spark/Delta Lakeの価値](https://qiita.com/taka_yayoi/items/5a804e53c60a55fb7340)
 * [r\_mlflow](https://github.com/taka-yayoi/public_repo_2/tree/master/r_mlflow): RにおけるMLflow利用のサンプルです。
+  * [DatabricksでRからMLflowを活用する](https://qiita.com/taka_yayoi/items/f674b0b8857bca7a5c98)
