@@ -39,7 +39,7 @@ variable
 # MAGIC 
 # MAGIC ![code-folding](https://github.com/RafiKurlansik/notebook2/blob/main/assets/code_folding.gif?raw=true)
 # MAGIC 
-# MAGIC Clicking next to a bracket will highlight the corresponding bracket further down in the code:
+# MAGIC 括弧の隣をクリックすることで、対応する括弧をハイライトします:
 # MAGIC 
 # MAGIC ![bracket-matching](https://github.com/RafiKurlansik/notebook2/blob/main/assets/bracket_matching.gif?raw=true)
 
