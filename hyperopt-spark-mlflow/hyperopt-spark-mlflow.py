@@ -83,7 +83,7 @@ def objective(C):
 # MAGIC 
 # MAGIC - `hp.choice(label, options)`
 # MAGIC 
-# MAGIC     選択肢の一つを返却し、listかtubleである必要があります。選択肢の要素を[ネストされた]確率論的表現にすることも可能です。この場合、選択肢のいくかにおける確率論的な選択肢は条件付きパラメータとなります。
+# MAGIC     選択肢の一つを返却し、listかtubleである必要があります。選択肢の要素を[ネストされた]確率論的表現にすることも可能です。この場合、選択肢のいくつかにおける確率論的な選択肢は条件付きパラメータとなります。
 # MAGIC 
 # MAGIC - `hp.randint(label, upper)`
 # MAGIC 
