@@ -1,4 +1,3 @@
-%md
 # Databricks QA bot
 
 - Original: https://github.com/databricks-industry-solutions/diy-llm-qa-bot
