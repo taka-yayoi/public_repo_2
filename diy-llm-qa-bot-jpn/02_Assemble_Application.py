@@ -166,10 +166,10 @@ class QABot():
     result = True # デフォルトのレスポンス
 
     badanswer_phrases = [ # モデルが回答を生成しなかったことを示すフレーズ
-      "no information", "no context", "don't know", "no clear answer", "sorry", 
-      "no answer", "no mention", "reminder", "context does not provide", "no helpful answer", 
-      "given context", "no helpful", "no relevant", "no question", "not clear",
-      "don't have enough information", " does not have the relevant information", "does not seem to be directly related"
+      "わかりません", "コンテキストがありません", "知りません", "答えが明確でありません", "すみません", 
+      "答えがありません", "説明がありません", "リマインダー", "コンテキストが提供されていません", "有用な回答がありません", 
+      "指定されたコンテキスト", "有用でありません", "適切ではありません", "質問がありません", "明確でありません",
+      "十分な情報がありません", "適切な情報がありません", "直接関係しているものが無いようです"
       ]
     
     if answer is None: # 回答がNoneの場合は不正な回答

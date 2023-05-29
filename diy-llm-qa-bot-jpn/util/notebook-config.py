@@ -42,8 +42,8 @@ _ = mlflow.set_experiment('/Users/{}/{}'.format(username, config['registered_mod
 # DBTITLE 1,OpenAIモデルの設定
 config['openai_embedding_model'] = 'text-embedding-ada-002'
 config['openai_chat_model'] = "gpt-3.5-turbo"
-config['system_message_template'] = """You are a helpful assistant built by Databricks, you are good at helping to answer a question based on the context provided, the context is a document. If the context does not provide enough relevant information to determine the answer, just say I don't know. If the context is irrelevant to the question, just say I don't know. If you did not find a good answer from the context, just say I don't know. If the query doesn't form a complete question, just say I don't know. If there is a good answer from the context, try to summarize the context to answer the question."""
-config['human_message_template'] = """Given the context: {context}. Answer the question {question}."""
+config['system_message_template'] = """あなたはDatabricksによって開発された有能なアシスタントであり、指定されたコンテキストに基づいて質問に回答することを得意としており、コンテキストはドキュメントです。コンテキストが回答を決定するのに十分な情報を提供しない場合には、わかりませんと言ってください。コンテキストが質問に適していない場合には、わかりませんと言ってください。コンテキストから良い回答が見つからない場合には、わかりませんと言ってください。問い合わせが完全な質問になっていない場合には、わからないと言ってください。コンテキストから良い回答が得られた場合には、質問に回答するためにコンテキストを要約してみてください。"""
+config['human_message_template'] = """指定されたコンテキスト: {context}。 質問に回答してください {question}."""
 config['temperature'] = 0.15
 
 # COMMAND ----------
