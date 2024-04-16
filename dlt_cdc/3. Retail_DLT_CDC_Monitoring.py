@@ -1,8 +1,8 @@
 # Databricks notebook source
 # MAGIC %md # Delta Live Tables - モニタリング
-# MAGIC 
+# MAGIC
 # MAGIC それぞれのDLTパイプラインは、パイプラインで定義されたストレージロケーションに自信のイベントテーブルを持ちます。このテーブルから、何が起きているのか、パイプラインを通過するデータの品質を確認することができます。
-# MAGIC 
+# MAGIC
 # MAGIC <img src="https://raw.githubusercontent.com/morganmazouchi/Delta-Live-Tables/main/Images/dlt%20end%20to%20end%20flow.png"/>
 
 # COMMAND ----------
@@ -33,11 +33,11 @@ dbutils.widgets.text('storage_path','/tmp/takaaki.yayoi@databricks.com/demo/dlt_
 # COMMAND ----------
 
 # MAGIC %md ## Delta Live Tablesのエクスペクテーション分析
-# MAGIC 
+# MAGIC
 # MAGIC Delta Live Tablesはエクスペクテーションを通じてデータ品質を追跡します。これらのエクスペクテーションはDLTのログイベントとともに技術的なテーブルとして格納されます。この情報を分析するために、シンプルにビューを作成することができます。
-# MAGIC 
+# MAGIC
 # MAGIC **ウィジェットでDLTのストレージパスを設定するようにしてください!**
-# MAGIC 
+# MAGIC
 # MAGIC <!-- do not remove -->
 # MAGIC <img width="1px" src="https://www.google-analytics.com/collect?v=1&gtm=GTM-NKQ8TT7&tid=UA-163989034-1&cid=555&aip=1&t=event&ec=field_demos&ea=display&dp=%2F42_field_demos%2Fretail%2Fdlt%2Fnotebook_quality_expectations&dt=DATA_PIPELINE">
 # MAGIC <!-- [metadata={"description":"Notebook extracting DLT expectations as delta tables used to build DBSQL data quality Dashboard.",
@@ -49,11 +49,11 @@ dbutils.widgets.text('storage_path','/tmp/takaaki.yayoi@databricks.com/demo/dlt_
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC 
+# MAGIC
 # MAGIC ### 1 - イベントログの分析
-# MAGIC 
+# MAGIC
 # MAGIC `details`カラムにはイベントログに送信されたイベントごとのメタデータが含まれています。イベントのタイプに応じてフィールドが異なります。行く疲れの例を示します:
-# MAGIC 
+# MAGIC
 # MAGIC | イベントのタイプ | 挙動 |
 # MAGIC | --- | --- |
 # MAGIC | `user_action` | パイプラインの作成のようなアクションが行われた際に生じるイベント |
@@ -108,7 +108,7 @@ dbutils.widgets.text('storage_path','/tmp/takaaki.yayoi@databricks.com/demo/dlt_
 # MAGIC   FROM cdc_data_taka.demo_cdc_dlt_system_event_log_raw
 # MAGIC   where details:flow_progress.data_quality.expectations is not null
 # MAGIC   ORDER BY timestamp);
-# MAGIC 
+# MAGIC
 # MAGIC select * from cdc_dlt_expectations
 
 # COMMAND ----------
@@ -157,14 +157,13 @@ dbutils.widgets.text('storage_path','/tmp/takaaki.yayoi@databricks.com/demo/dlt_
 
 # COMMAND ----------
 
-# MAGIC %python 
-# MAGIC import plotly.express as px
-# MAGIC expectations_metrics = spark.sql("""select sum(expectations.failed_records) as failed_records, 
-# MAGIC                                  sum(expectations.passed_records) as passed_records, 
-# MAGIC                                  expectations.name 
-# MAGIC                                  from cdc_dlt_expectations
-# MAGIC                                  group by expectations.name""").toPandas()
-# MAGIC px.bar(expectations_metrics, x="name", y=["passed_records", "failed_records"], title="DLT expectations metrics")
+import plotly.express as px
+expectations_metrics = spark.sql("""select sum(expectations.failed_records) as failed_records, 
+                                 sum(expectations.passed_records) as passed_records, 
+                                 expectations.name 
+                                 from cdc_dlt_expectations
+                                 group by expectations.name""").toPandas()
+px.bar(expectations_metrics, x="name", y=["passed_records", "failed_records"], title="DLT expectations metrics")
 
 # COMMAND ----------
 
