@@ -1,0 +1,2 @@
+- [DatabricksにおけるRAGの実践\(前編\) \#Databricks \- Qiita](https://qiita.com/taka_yayoi/items/f174599e4721e51e9e1d)
+- [DatabricksにおけるRAGの実践\(後編\) \#Databricks \- Qiita](https://qiita.com/taka_yayoi/items/cd23bf48142db120e70d)
