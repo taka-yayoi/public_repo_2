@@ -12,7 +12,7 @@ st.title('Databricks Q&A bot')
 def generate_answer(question):
   # Driver Proxyと異なるクラスター、ローカルからDriver Proxyにアクセスする際にはパーソナルアクセストークンを設定してください
   token = dbutils.secrets.get("demo-token-takaaki.yayoi", "rag_sp_token")
-  url = "https://e2-demo-field-eng.cloud.databricks.com/serving-endpoints/dbdemos_endpoint_takaakiyayoi_catalog_rag_chatbot/invocations"
+  url = "<モデルサービングエンドポイントのURL>"
 
   headers = {
       "Content-Type": "application/json",
