@@ -70,7 +70,7 @@ class SquareNumbersArrow:
 
 # COMMAND ----------
 
-# Python UDTFの登録
+# 通常のPython UDTF
 SquareNumbers(lit(0), lit(10000000)).show()
 
 # COMMAND ----------
