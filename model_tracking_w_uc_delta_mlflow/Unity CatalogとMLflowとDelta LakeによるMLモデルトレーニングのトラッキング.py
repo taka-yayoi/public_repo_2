@@ -387,7 +387,7 @@ feature_importances.sort_values('importance', ascending=False)
 # COMMAND ----------
 
 # MAGIC %md 
-# MAGIC MLflowにROC曲線のAUCを記録しました。右上の**Experiment**をクリックして、エクスペリメントランのサイドバーを表示します。
+# MAGIC MLflowにROC曲線のAUCを記録しました。右上の**フラスコマーク**をクリックして、エクスペリメントランのサイドバーを表示します。
 # MAGIC
 # MAGIC このモデルはAUC0.58を達成しました。
 # MAGIC
