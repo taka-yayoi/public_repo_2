@@ -419,7 +419,7 @@ except:
 
 # COMMAND ----------
 
-# MAGIC %md ### MLflowモデルレジストリにモデルを登録
+# MAGIC %md ### Unity Catalogモデルレジストリにモデルを登録
 # MAGIC
 # MAGIC モデルレジストリにモデルを登録することで、Databricksのどこからでもモデルを容易に参照できるようになります。
 # MAGIC
