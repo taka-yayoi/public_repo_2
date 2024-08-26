@@ -91,7 +91,7 @@ spark.sql(f"USE {catalog_name}.{schema_name}")
 
 # MAGIC %md ## データのインポート
 # MAGIC
-# MAGIC このセクションでは、サンプルデータからpandasデータフレームにデータを読み込みます。
+# MAGIC このセクションでは、サンプルデータからSparkデータフレームにデータを読み込みます。
 
 # COMMAND ----------
 
