@@ -224,7 +224,7 @@ loan_stats_pdf.isna().any()
 
 # COMMAND ----------
 
-# MAGIC %md `dti`に欠損値が存在しています。このようなデータの欠損値や統計は、`dbutils.data.summarize`や`display`関数の結果からもアクセスすることができます。
+# MAGIC %md サンプリングされたデータには欠損値が存在する場合があります。このようなデータの欠損値や統計は、`dbutils.data.summarize`や`display`関数の結果からもアクセスすることができます。
 
 # COMMAND ----------
 
