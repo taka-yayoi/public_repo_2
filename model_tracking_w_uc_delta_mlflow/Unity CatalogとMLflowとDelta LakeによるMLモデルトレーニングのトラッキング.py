@@ -530,10 +530,11 @@ display(loan_stats_new)
 # COMMAND ----------
 
 # 欠損値を含む行を削除
-loan_stats_pdf.dropna(inplace=True)
+loan_stats_new_pdf = loan_stats_new.toPandas()
+loan_stats_new_pdf.dropna(inplace=True)
 
 # 説明変数を選択して、トレーニング・テストデータに分割
-train, test = train_test_split(loan_stats_new.toPandas(), random_state=123)
+train, test = train_test_split(loan_stats_new_pdf, random_state=123)
 X_train = train.drop(["bad_loan"], axis=1)
 X_test = test.drop(["bad_loan"], axis=1)
 y_train = train.bad_loan
